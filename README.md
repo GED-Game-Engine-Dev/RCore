@@ -17,7 +17,7 @@
 > Built-in math library
 
 # [ae2f::Core](https://github.com/yuisanae2f/ae2f_Core)
-- Rel-v1.2.10.4
+- Rel-v1.2.10.5
 
 > This is a very first & core of my own package.  
 > When installed, will be installed as usual, but in directory of "ae2f" under the default install direction.  
