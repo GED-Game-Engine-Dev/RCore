@@ -2,8 +2,16 @@ cmake_minimum_required(VERSION 3.10)
 enable_testing()
 project(RCore)
 
+if(ae2f_IS_SHARED)
+    set(ae2f_PREFIX_LIB SHARED)
+    add_compile_definitions(-D_ae2f_IS_SHARED=1)
+else()
+    set(ae2f_PREFIX_LIB )
+    add_compile_definitions(-D_ae2f_IS_SHARED=0)
+endif()
+
 add_library(
-    ${PROJECT_NAME} SHARED
+    ${PROJECT_NAME} ${ae2f_PREFIX_LIB}
     "include/GED/Core/Clock.h"
     "include/GED/Core/Ctrl/MousePoint.h" 
     "include/GED/Core/Ctrl/Event.h" 
@@ -12,8 +20,10 @@ add_library(
     "src/Ctrl/Event.c"
     
     "src/xClock.cpp"
+
     "src/Camera.c"
     "src/xCamera.cpp"
+
     "src/BmpSrc.c"
 )
 

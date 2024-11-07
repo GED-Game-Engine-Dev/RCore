@@ -1,3 +1,8 @@
+# [GED::RCore](https://github.com/yuisanae2f/GED_RCore)
+- Rel-v0.0.1
+
+> Dynamic Linker Library for GED_Core.
+
 # [ae2f::Bmp](https://github.com/yuisanae2f/ae2f_Bmp)
 - Rel-v2.4.9
 > The Library is not stable. Keep your expectations low.
