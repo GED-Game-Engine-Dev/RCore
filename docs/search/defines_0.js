@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ae2f_5fds_5falloc_5fcown_0',['ae2f_ds_Alloc_cOwn',['../Own_8h.html#a74eda9a486b849152d55552bb4841299',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fcpy_1',['ae2f_ds_Alloc_cOwn_Cpy',['../Own_8h.html#a056cc651992db418d638d3068cdb7b58',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fdel_2',['ae2f_ds_Alloc_cOwn_Del',['../Own_8h.html#ae20c7868230e97e1b48d872108220fc0',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fgetsize_3',['ae2f_ds_Alloc_cOwn_getSize',['../Own_8h.html#a897ccd0f6d897a8c5b47560b8addee81',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5finitauto_4',['ae2f_ds_Alloc_cOwn_InitAuto',['../Own_8h.html#a9231dd1dba2b79d935e625e1c1ccfea7',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fread_5',['ae2f_ds_Alloc_cOwn_Read',['../Own_8h.html#a145aa1e5b7dabef3394fd5af6e74bb3b',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5freconfig_6',['ae2f_ds_Alloc_cOwn_ReConfig',['../Own_8h.html#a05354ffe0338884c30e3111da2748766',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fresize_7',['ae2f_ds_Alloc_cOwn_ReSize',['../Own_8h.html#ac95b3b8fe4a66245b3a771710ca4d889',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcown_5fwrite_8',['ae2f_ds_Alloc_cOwn_Write',['../Own_8h.html#a6acce6a6aa3fd4e2ac1fc632eec210ce',1,'Own.h']]],
+  ['ae2f_5fds_5falloc_5fcref_9',['ae2f_ds_Alloc_cRef',['../Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a',1,'Ref.h']]],
+  ['ae2f_5fds_5falloc_5fcref_5fgetsize_10',['ae2f_ds_Alloc_cRef_getSize',['../Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6',1,'Ref.h']]],
+  ['ae2f_5fds_5falloc_5fcref_5fmk_11',['ae2f_ds_Alloc_cRef_Mk',['../Ref_8h.html#ac5bc205a87a0f869e6d6cf774746a32c',1,'Ref.h']]],
+  ['ae2f_5fds_5falloc_5fcref_5fread_12',['ae2f_ds_Alloc_cRef_Read',['../Ref_8h.html#a9fec31670568d6cd74989f3335e60a68',1,'Ref.h']]],
+  ['ae2f_5fds_5falloc_5fcref_5fwrite_13',['ae2f_ds_Alloc_cRef_Write',['../Ref_8h.html#a693ff82b75a1dd5690ea73ad57e26270',1,'Ref.h']]],
+  ['ae2f_5fds_5falloc_5ferr_5ffpimpnull_14',['ae2f_ds_Alloc_Err_FPIMPNULL',['../Alloc_2Err_8h.html#a8d2ce11f5a71e1b527f53b1978bcd058',1,'Err.h']]],
+  ['ae2f_5fds_5falloc_5ferr_5fidx_5finvalid_15',['ae2f_ds_Alloc_Err_IDX_INVALID',['../Alloc_2Err_8h.html#a27e8f1b9c7015eabf3b26f8b0443af16',1,'Err.h']]],
+  ['ae2f_5fds_5falloc_5ferr_5fncopied_16',['ae2f_ds_Alloc_Err_NCOPIED',['../Alloc_2Err_8h.html#a1e5ad33bcac0156c25efbf3f3a954062',1,'Err.h']]],
+  ['ae2f_5fds_5farr_5fnot_5ffound_17',['ae2f_ds_Arr_NOT_FOUND',['../Arr_2Err_8h.html#a7fabf88dda3aff3bfc917fa0f72035e3',1,'Err.h']]]
+];
