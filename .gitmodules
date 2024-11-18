@@ -1,0 +1,3 @@
+[submodule "mod/ae2f/BmpCL"]
+	path = mod/ae2f/BmpCL
+	url = https://github.com/ae2f/BmpCL

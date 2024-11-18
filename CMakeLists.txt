@@ -28,15 +28,8 @@ add_library(
 )
 
 
-include(FetchContent)
-find_package(Bmp)
-if(NOT Bmp_FOUND)
-    message("ae2f::Bmp not found")
-    add_subdirectory(submodules/Bmp)
-    target_link_libraries(${PROJECT_NAME} Bmp)
-else()
-    target_link_libraries(${PROJECT_NAME} ae2f::Bmp)
-endif()
+add_subdirectory(mod/ae2f/BmpCL)
+target_link_libraries(${PROJECT_NAME} BmpCL)
 
 
 include_directories(include)
