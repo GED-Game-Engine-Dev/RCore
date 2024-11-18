@@ -1,7 +1,7 @@
 #if !defined(GED_Core_Clock_h)
 #define GED_Core_Clock_h
-#include <ae2f/Macro/Cast.h>
-#include <ae2f/Macro/Call.h>
+#include <ae2f/Cast.h>
+#include <ae2f/Call.h>
 #include <ctime>
 
 

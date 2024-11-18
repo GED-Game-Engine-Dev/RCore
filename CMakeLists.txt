@@ -2,14 +2,6 @@ cmake_minimum_required(VERSION 3.10)
 enable_testing()
 project(RCore)
 
-if(ae2f_IS_SHARED)
-    set(ae2f_PREFIX_LIB SHARED)
-    add_compile_definitions(-D_ae2f_IS_SHARED=1)
-else()
-    set(ae2f_PREFIX_LIB )
-    add_compile_definitions(-D_ae2f_IS_SHARED=0)
-endif()
-
 add_library(
     ${PROJECT_NAME} ${ae2f_PREFIX_LIB}
     "include/GED/Core/Clock.h"
@@ -30,6 +22,9 @@ add_library(
 
 add_subdirectory(mod/ae2f/BmpCL)
 target_link_libraries(${PROJECT_NAME} BmpCL)
+
+add_subdirectory(mod/ae2f/Ds)
+target_link_libraries(${PROJECT_NAME} Ds)
 
 
 include_directories(include)
