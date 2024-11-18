@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
-cmake_policy(SET CMP0002 NEW)
 enable_testing()
 project(RCore)
+
+if(NOT TARGET ${PROJECT_NAME})
 
 add_library(
     ${PROJECT_NAME} ${ae2f_PREFIX_LIB}
@@ -65,3 +66,5 @@ install(FILES
 )
 
 add_subdirectory(test)
+
+endif()
