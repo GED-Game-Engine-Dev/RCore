@@ -12,7 +12,7 @@ static void Process(
     uint8_t tdlen,
     size_t _this_len
 ) {
-    ae2f_errint_t code;
+    ae2f_err_t code;
     uint32_t 
         left, right,
         gwidth = ae2f_Bmp_Idx_XLeft(dest->rIdxer),
@@ -79,7 +79,7 @@ struct buff {
 };
 
 ae2f_extern ae2f_SHAREDEXPORT
-ae2f_errint_t GED_Core_Camera_Buff_Threaded(
+ae2f_err_t GED_Core_Camera_Buff_Threaded(
     GED_Core_Camera_t* _this,
     ae2f_struct ae2f_Bmp_cSrc* dest,
     uint32_t background_asRGB,
@@ -90,7 +90,7 @@ ae2f_errint_t GED_Core_Camera_Buff_Threaded(
         return ae2f_errGlob_ALLOC_FAILED;
     }
 
-    size_t a; ae2f_errint_t code = ae2f_errGlob_OK;
+    size_t a; ae2f_err_t code = ae2f_errGlob_OK;
     if((code = ae2f_ds_Alloc_cOwn_getSize(_this, &a, 0)) != ae2f_ds_Alloc_Err_NCOPIED)
     goto DONE;
     switch (background_asRGB)

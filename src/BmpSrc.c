@@ -5,7 +5,7 @@ GED_Core_BmpSrc_size() {
     return sizeof(struct ae2f_Bmp_cSrc);
 }
 
-ae2f_SHAREDEXPORT ae2f_errint_t
+ae2f_SHAREDEXPORT ae2f_err_t
 GED_Core_BmpSrc_init(
     struct ae2f_Bmp_cSrc* _this,
     size_t Width,

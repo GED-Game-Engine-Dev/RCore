@@ -15,7 +15,7 @@ typedef ae2f_struct ae2f_ds_Alloc_cOwn GED_Core_Camera_t;
 /// @param This:ae2f_ds_Alloc_Owner 
 #define GED_Core_Camera_Init(This) ae2f_ds_Alloc_vOwner_InitAuto(This)
 
-ae2f_SHAREDCALL ae2f_extern ae2f_errint_t GED_Core_Camera_Buff_All(GED_Core_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* dest, uint32_t background);
+ae2f_SHAREDCALL ae2f_extern ae2f_err_t GED_Core_Camera_Buff_All(GED_Core_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* dest, uint32_t background);
 
 #define GED_Core_Camera_Read(_this, buff, i) ae2f_ds_Alloc_vOwner_Read((_this), (i) * sizeof(struct GED_Core_Camera_El), (buff), sizeof(struct GED_Core_Camera_El))
 #define GED_Core_Camera_Write(_this, buff, i) ae2f_ds_Alloc_vOwner_Write((_this), (i) * sizeof(struct GED_Core_Camera_El), (buff), sizeof(struct GED_Core_Camera_El))
