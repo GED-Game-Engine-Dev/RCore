@@ -1,11 +1,11 @@
-#include <GED/Core/Camera.h>
+#include <GED/Camera.h>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
 #include <stdint.h>
 
 static void Process(
-    GED_Core_Camera_t* _this,
+    GED_Camera_t* _this,
     ae2f_struct ae2f_Bmp_cSrc* dest, 
     uint32_t background_asRGB,
     uint8_t tdidx,
@@ -22,13 +22,13 @@ static void Process(
     right += pwidth;
     if(right > gwidth) right = gwidth;
 
-    for(size_t i = 0; i < _this_len; i+=sizeof(struct GED_Core_Camera_El)) {
-        ae2f_struct GED_Core_Camera_El _element;
+    for(size_t i = 0; i < _this_len; i+=sizeof(struct GED_Camera_El)) {
+        ae2f_struct GED_Camera_El _element;
         if((code = ae2f_ds_Alloc_cOwn_Read(
             _this,
             i,
             &_element,
-            sizeof(GED_Core_Camera_El))) != ae2f_errGlob_OK
+            sizeof(GED_Camera_El))) != ae2f_errGlob_OK
         ) goto DONE;
 
         if(!_element.Source.Addr) continue;
@@ -79,8 +79,8 @@ struct buff {
 };
 
 ae2f_extern ae2f_SHAREDEXPORT
-ae2f_err_t GED_Core_Camera_Buff_Threaded(
-    GED_Core_Camera_t* _this,
+ae2f_err_t GED_Camera_Buff_Threaded(
+    GED_Camera_t* _this,
     ae2f_struct ae2f_Bmp_cSrc* dest,
     uint32_t background_asRGB,
     uint8_t tdcount

@@ -1,12 +1,15 @@
 #include <ae2f/Bmp/Src.h>
+#include <GED/Mig.h>
+
+#if GED_Mig
 
 ae2f_SHAREDEXPORT size_t
-GED_Core_BmpSrc_size() {
+GED_BmpSrc_size() {
     return sizeof(struct ae2f_Bmp_cSrc);
 }
 
 ae2f_SHAREDEXPORT ae2f_err_t
-GED_Core_BmpSrc_init(
+GED_BmpSrc_init(
     struct ae2f_Bmp_cSrc* _this,
     size_t Width,
     size_t Height,
@@ -31,3 +34,5 @@ GED_Core_BmpSrc_init(
 
     return ae2f_errGlob_OK;
 }
+
+#endif

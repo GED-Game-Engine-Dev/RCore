@@ -1,8 +1,9 @@
 link_libraries(RCore)
 
+project(RCoreTest)
 add_executable(
-    GED_RCore_test0
-    test0x0/a.c
+    ${PROJECT_NAME}
+    a.c
 )
 
-add_test(NAME GED_RCore_test0 COMMAND GED_RCore_test0)
+add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})

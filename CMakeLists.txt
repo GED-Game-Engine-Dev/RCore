@@ -4,14 +4,27 @@ project(RCore)
 
 if(NOT TARGET ${PROJECT_NAME})
 
+option(GED_For_Another "Adds additional functions for C# when activated." ON)
+if(GED_For_Another)
+    message("You are activating [GED_For_Another]. This configuration will consider that you are willing to use it as dynamic linker library for another language than C/C++.")
+endif()
+
+configure_file(${PROJECT_SOURCE_DIR}/hin/Mig.h.in ${PROJECT_SOURCE_DIR}/include/GED/Mig.h)
+
 add_library(
     ${PROJECT_NAME} ${ae2f_PREFIX_LIB}
-    "include/GED/Core/Clock.h"
-    "include/GED/Core/Ctrl/MousePoint.h" 
-    "include/GED/Core/Ctrl/Event.h" 
+    "hin/Mig.h.in"
+    "include/GED/Mig.h"
+
+    "include/GED/Clock.h"
+    "include/GED/Ctrl/MousePoint.h" 
+    "include/GED/Ctrl/Ev.h" 
+
+    "include/GED/Camera.h"
+    "include/GED/Clock.h"
 
     "src/Ctrl/MousePoint.c"
-    "src/Ctrl/Event.c"
+    "src/Ctrl/Ev.c"
     
     "src/xClock.cpp"
 
