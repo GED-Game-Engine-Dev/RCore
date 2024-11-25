@@ -5,12 +5,12 @@
 
 ae2f_SHAREDEXPORT size_t
 GED_BmpSrc_size() {
-    return sizeof(struct ae2f_Bmp_cSrc);
+    return sizeof(struct ae2f_cBmpSrc);
 }
 
 ae2f_SHAREDEXPORT ae2f_err_t
 GED_BmpSrc_init(
-    struct ae2f_Bmp_cSrc* _this,
+    struct ae2f_cBmpSrc* _this,
     size_t Width,
     size_t Height,
     uint8_t elsize,

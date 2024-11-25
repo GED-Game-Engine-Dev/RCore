@@ -8,14 +8,14 @@
 // inside is Allocator::cOwner. (aka ae2f_ds_Alloc_Owner)
 typedef struct GED_Ctrl_Ev {
     uint8_t wel;
-    ae2f_struct ae2f_ds_Alloc_cOwn list;
+    ae2f_struct ae2f_cDsAllocOwn list;
 } GED_Ctrl_Ev_t;
 
 typedef bool(*GED_Ctrl_Ev_fpCond_t)(const void*);
 
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Kill(GED_Ctrl_Ev_t* mgr);
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Resize(GED_Ctrl_Ev_t* mgr, size_t size);
-ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Sort(GED_Ctrl_Ev_t* mgr, const ae2f_ds_Arr_fpElCmp_t fpcmp);
+ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Sort(GED_Ctrl_Ev_t* mgr, const ae2f_fpCmp_t fpcmp);
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_GetRange(const GED_Ctrl_Ev_t* mgr, const GED_Ctrl_Ev_fpCond_t fpcond, size_t* Min, size_t* Max);
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Element(const GED_Ctrl_Ev_t* mgr, size_t i, void* lpEl);
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_Ctrl_Ev_Element_Set(GED_Ctrl_Ev_t* mgr, size_t i, const void* lpEl);

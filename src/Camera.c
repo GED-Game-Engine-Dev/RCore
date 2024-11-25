@@ -9,15 +9,15 @@
 #undef GED_Camera_Resize
 
 ae2f_SHAREDEXPORT
-ae2f_err_t GED_Camera_BuffAll(GED_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* dest, uint32_t background_asRGB) {
+ae2f_err_t GED_Camera_BuffAll(GED_Camera_t* _this, ae2f_struct ae2f_cBmpSrc* dest, uint32_t background_asRGB) {
     size_t a; ae2f_err_t code = ae2f_errGlob_OK;
-    if((code = ae2f_ds_Alloc_cRef_getSize(_this, &a, 0)) != ae2f_ds_Alloc_Err_NCOPIED)
+    if((code = ae2f_cDsAllocOwnGetSize(_this, &a, 0)) != ae2f_errDsAlloc_NCOPIED)
     goto DONE;
 
     switch (background_asRGB)
     {
     default: {
-        if((code = ae2f_Bmp_cSrc_Fill(dest, background_asRGB)) != ae2f_errGlob_OK)
+        if((code = ae2f_cBmpSrcFill(dest, background_asRGB)) != ae2f_errGlob_OK)
         goto DONE;
     } break;
     case (uint32_t)-1:
@@ -26,7 +26,7 @@ ae2f_err_t GED_Camera_BuffAll(GED_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* de
 
     for(size_t i = 0; i < a; i+=sizeof(struct GED_Camera_El)) {
         ae2f_struct GED_Camera_El _element;
-        if((code = ae2f_ds_Alloc_cOwn_Read(
+        if((code = ae2f_cDsAllocOwnGets(
             _this, 
             i, 
             &_element, 
@@ -35,10 +35,10 @@ ae2f_err_t GED_Camera_BuffAll(GED_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* de
 
         if(!_element.Source.Addr) continue;
 
-        if((code = ae2f_Bmp_cSrc_Copy(dest, &_element.Source, &_element.SourceLinked))) // Real
+        if((code = ae2f_cBmpSrcCpy(dest, &_element.Source, &_element.SourceLinked))) // Real
         goto DONE;
 
-        if((code = ae2f_ds_Alloc_cOwn_Write(_this, i, &_element, sizeof(struct GED_Camera_El))))
+        if((code = ae2f_cDsAllocOwnPuts(_this, i, &_element, sizeof(struct GED_Camera_El))))
         goto DONE;
     }
 
@@ -52,27 +52,27 @@ ae2f_err_t GED_Camera_BuffAll(GED_Camera_t* _this, ae2f_struct ae2f_Bmp_cSrc* de
 
 ae2f_SHAREDEXPORT
 ae2f_err_t GED_Camera_Resize(GED_Camera_t* _this, size_t count) {
-    return ae2f_ds_Alloc_cOwn_ReSize(_this, count * sizeof(struct GED_Camera_El));
+    return ae2f_cDsAllocOwnReSize(_this, count * sizeof(struct GED_Camera_El));
 }
 
 ae2f_SHAREDEXPORT
 ae2f_err_t GED_Camera_Del(GED_Camera_t* _this) {
-    return ae2f_ds_Alloc_cOwn_Del(_this);
+    return ae2f_cDsAllocOwnDel(_this);
 }
 
 ae2f_SHAREDEXPORT
 ae2f_err_t GED_Camera_Mk(GED_Camera_t* _this) {
-    return ae2f_ds_Alloc_cOwn_InitAuto(_this);
+    return ae2f_cDsAllocOwnInitAuto(_this);
 }
 
 ae2f_SHAREDEXPORT
 ae2f_err_t GED_Camera_Read(const GED_Camera_t* _this, struct GED_Camera_El* buff, size_t i) {
-    return ae2f_ds_Alloc_cOwn_Read(_this, i * sizeof(struct GED_Camera_El), buff, sizeof(struct GED_Camera_El));
+    return ae2f_cDsAllocOwnGets(_this, i * sizeof(struct GED_Camera_El), buff, sizeof(struct GED_Camera_El));
 }
 
 ae2f_SHAREDEXPORT
 ae2f_err_t GED_Camera_Write(GED_Camera_t* _this, struct GED_Camera_El* buff, size_t i) {
-    return ae2f_ds_Alloc_cOwn_Write(_this, i * sizeof(struct GED_Camera_El), buff, sizeof(struct GED_Camera_El));
+    return ae2f_cDsAllocOwnPuts(_this, i * sizeof(struct GED_Camera_El), buff, sizeof(struct GED_Camera_El));
 }
 
 ae2f_SHAREDEXPORT size_t
@@ -98,12 +98,12 @@ GED_Camera_El_Init(
     uint32_t AddrYForDest,
     uint32_t DataToIgnore,
 
-    const struct ae2f_Bmp_cSrc* bitmapsource
+    const struct ae2f_cBmpSrc* bitmapsource
 ) {
     if(!(_this && bitmapsource)) 
     return ae2f_errGlob_PTR_IS_NULL;
 
-    _this->SourceLinked = (struct ae2f_Bmp_cSrc_Copy_Global) {
+    _this->SourceLinked = (struct ae2f_cBmpSrcCpyPrm) {
         .AddrXForDest = AddrXForDest,
         .AddrYForDest = AddrYForDest,
         .DataToIgnore = DataToIgnore,
@@ -121,7 +121,7 @@ GED_Camera_El_Init(
 }
 
 ae2f_SHAREDEXPORT ae2f_err_t
-GED_Camera_El_getParam(struct GED_Camera_El* _this, struct ae2f_Bmp_cSrc_Copy_Global** param) {
+GED_Camera_El_getParam(struct GED_Camera_El* _this, struct ae2f_cBmpSrcCpyPrm** param) {
     if(!(_this && param)) return ae2f_errGlob_PTR_IS_NULL;
     param[0] = &_this->SourceLinked;
     return ae2f_errGlob_OK;
