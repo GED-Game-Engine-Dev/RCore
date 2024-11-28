@@ -69,6 +69,10 @@ ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElInit(
     el->Prm = prm;
 }
 
+ae2f_extern ae2f_SHAREDEXPORT size_t GED_CLCamElSize() {
+    return sizeof(ae2f_struct GED_CLCamEl);
+}
+
 ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElDel(ae2f_struct GED_CLCamEl* a) {
     ae2f_cBmpCLBuffDel(&a->CLBuff);
     a->CLBuff.body = a->CLBuff.head = 0;
