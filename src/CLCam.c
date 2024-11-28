@@ -17,6 +17,7 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     uint32_t background,
     uint32_t w, uint32_t h
 ) {
+    
     return 0;
 }
 
@@ -78,6 +79,16 @@ ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElDel(ae2f_struct GED_CLCamEl* a) {
     a->CLBuff.body = a->CLBuff.head = 0;
     a->CLBuff.source = 0;
     a->Prm = 0;
+}
+
+ae2f_SHAREDEXPORT ae2f_err_t 
+GED_CLCamElPrm(
+    ae2f_struct GED_CLCamEl* a,
+    struct ae2f_cBmpSrcCpyPrm** param
+) {
+    if(!(_this && param)) return ae2f_errGlob_PTR_IS_NULL;
+    param[0] = a->Prm;
+    return ae2f_errGlob_OK;
 }
 
 #endif

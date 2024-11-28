@@ -7,7 +7,7 @@
 
 struct GED_CLCamEl {
     ae2f_struct ae2f_cBmpCLBuff CLBuff;
-    ae2f_struct ae2f_cBmpSrcCpyPrm* Prm;
+    ae2f_struct ae2f_cBmpSrcCpyPrm Prm[1];
 };
 
 typedef ae2f_struct ae2f_cDsAllocOwn GED_CLCam_t;
