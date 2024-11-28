@@ -86,7 +86,7 @@ GED_CLCamElPrm(
     ae2f_struct GED_CLCamEl* a,
     struct ae2f_cBmpSrcCpyPrm** param
 ) {
-    if(!(_this && param)) return ae2f_errGlob_PTR_IS_NULL;
+    if(!(a && param)) return ae2f_errGlob_PTR_IS_NULL;
     param[0] = a->Prm;
     return ae2f_errGlob_OK;
 }
