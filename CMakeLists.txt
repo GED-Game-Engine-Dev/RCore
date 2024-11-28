@@ -17,21 +17,24 @@ add_library(
     "include/GED/Mig.h"
 
     "include/GED/Clock.h"
-    "include/GED/Ctrl/MousePoint.h" 
-    "include/GED/Ctrl/Ev.h" 
-
-    "include/GED/Camera.h"
-    "include/GED/Clock.h"
-
-    "src/Ctrl/MousePoint.c"
-    "src/Ctrl/Ev.c"
-    
     "src/xClock.cpp"
 
-    "src/Camera.c"
-    "src/xCamera.cpp"
+    "include/GED/Ctrl/MousePoint.h" 
+    "src/Ctrl/MousePoint.c"
+    
+    "include/GED/Ctrl/Ev.h" 
+    "src/Ctrl/Ev.c"
+
+    "include/GED/Cam.h"
+    "src/Cam.c"
+
+    "include/GED/CLCam.h"
+    "src/CLCam.c"
 
     "src/BmpSrc.c"
+
+    "include/GED/CLPort.h"
+    "src/CLPort.c"
 )
 
 
