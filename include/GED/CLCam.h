@@ -19,8 +19,7 @@ typedef ae2f_struct ae2f_cDsAllocOwn GED_CLCam_t;
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_CLCamBuff(
     GED_CLCam_t* _this, 
     ae2f_struct ae2f_cBmpSrc* dest,
-    uint32_t background,
-    uint32_t w, uint32_t h
+    uint32_t background
 );
 
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_CLCamRead(

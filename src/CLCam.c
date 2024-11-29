@@ -14,10 +14,15 @@
 ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     GED_CLCam_t* _this, 
     ae2f_struct ae2f_cBmpSrc* dest,
-    uint32_t background,
-    uint32_t w, uint32_t h
+    uint32_t background
 ) {
-    
+    if(!(_this && dest))
+    return ae2f_errGlob_IMP_NOT_FOUND;
+
+    ae2f_struct ae2f_cBmpCLBuff cldest;
+    ae2f_cBmpCLBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx, 0);
+    ae2f_BmpCLFill(GED_CLQueue, &cldest, background);
+    ae2f_cBmpCLBuffDel(&cldest);
     return 0;
 }
 
