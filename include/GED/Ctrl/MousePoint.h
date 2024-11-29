@@ -5,7 +5,7 @@
 #include <ae2f/Float.h>
 
 ae2f_SHAREDCALL ae2f_extern ae2f_float_t 
-	GED_Ctrl_MousePoint_X, 
-	GED_Ctrl_MousePoint_Y;
+	GED_CtrlMousePointX, 
+	GED_CtrlMousePointY;
 
 #endif

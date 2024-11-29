@@ -1,15 +1,15 @@
 #include <GED/Ctrl/MousePoint.h>
 
 ae2f_SHAREDEXPORT ae2f_float_t
-GED_Ctrl_MousePoint_X = 0,
-GED_Ctrl_MousePoint_Y = 0;
+GED_CtrlMousePointX = 0,
+GED_CtrlMousePointY = 0;
 
 // Not neccesary to reveal
-ae2f_SHAREDEXPORT ae2f_float_t* GED_Ctrl_MousePoint_ptrX() {
-	return &GED_Ctrl_MousePoint_X;
+ae2f_SHAREDEXPORT ae2f_float_t* GED_CtrlMousePointptrX() {
+	return &GED_CtrlMousePointX;
 }
 
 // Not neccesary to reveal
-ae2f_SHAREDEXPORT ae2f_float_t* GED_Ctrl_MousePoint_ptrY() {
-	return &GED_Ctrl_MousePoint_Y;
+ae2f_SHAREDEXPORT ae2f_float_t* GED_CtrlMousePointptrY() {
+	return &GED_CtrlMousePointY;
 }
