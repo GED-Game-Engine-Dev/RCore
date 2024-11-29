@@ -1,9 +1,9 @@
-
 #include <GED/CLPort.h>
 #include <GED/Mig.h>
 #include <ae2f/Ds/Arr.h>
 #include <GED/CLCam.h>
 
+#include <stdio.h>
 
 #undef GED_CLCamRead
 #undef GED_CLCamWrite
@@ -16,14 +16,44 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     ae2f_struct ae2f_cBmpSrc* dest,
     uint32_t background
 ) {
+    ae2f_err_t code = 0; size_t a = 0;
     if(!(_this && dest))
     return ae2f_errGlob_IMP_NOT_FOUND;
 
+    if((code = ae2f_cDsAllocOwnGetSize(_this, &a, 0)) != ae2f_errDsAlloc_NCOPIED)
+    goto DONE;
+
     ae2f_struct ae2f_cBmpCLBuff cldest;
     ae2f_cBmpCLBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx, 0);
-    ae2f_BmpCLFill(GED_CLQueue, &cldest, background);
+
+    switch (background)
+    {
+    default: {
+        ae2f_BmpCLFill(GED_CLQueue, &cldest, background);
+    } break;
+    case (uint32_t)-1:
+        break;
+    }
+
+    for(size_t i = 0; i < a; i+=sizeof(struct GED_CLCamEl)) {
+        ae2f_struct GED_CLCamEl _element;
+        if((code = ae2f_cDsAllocOwnGets(
+            _this, 
+            i, 
+            &_element, 
+            sizeof(struct GED_CLCamEl))) != ae2f_errGlob_OK
+        ) goto DONE;
+
+        if(!(_element.CLBuff.body && _element.CLBuff.head && _element.CLBuff.source->Addr)) continue;
+        if((code = ae2f_BmpCLCpy(GED_CLQueue, &cldest, &_element.CLBuff, _element.Prm))) // Real
+        goto DONE;
+        if((code = ae2f_cDsAllocOwnPuts(_this, i, &_element, sizeof(struct GED_CLCamEl))))
+        goto DONE;
+    }
+
+    DONE:
     ae2f_cBmpCLBuffDel(&cldest);
-    return 0;
+    return code;
 }
 
 #if GED_Mig
