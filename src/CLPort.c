@@ -36,5 +36,5 @@ GED_CLSrcInit(
     struct ae2f_cBmpSrc* src
 ) {
     if(!(GED_CLCtx && GED_CLQueue)) return ae2f_errGlob_IMP_NOT_FOUND;
-    return ae2f_cBmpCLBuffMk(dest, CL_MEM_READ_WRITE, src, GED_CLCtx, GED_CLQueue);
+    return ae2f_cBmpCLBuffMk(dest, CL_MEM_READ_WRITE, src, GED_CLCtx);
 }

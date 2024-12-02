@@ -1,5 +1,5 @@
 # [GED::RCore](https://github.com/yuisanae2f/GED_RCore)
-- Rel-v2.3.2
+- Rel-v2.3.3
 
 > Dynamic Linker Library for GED_Core.
 

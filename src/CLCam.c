@@ -24,7 +24,7 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     goto DONE;
 
     ae2f_struct ae2f_cBmpCLBuff cldest;
-    ae2f_cBmpCLBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx, 0);
+    ae2f_cBmpCLBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx);
 
     switch (background)
     {
@@ -101,7 +101,7 @@ ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElInit(
     ae2f_struct ae2f_cBmpSrc* src,
     ae2f_struct ae2f_cBmpSrcCpyPrm* prm
 ) {
-    ae2f_cBmpCLBuffMk(&el->CLBuff, CL_MEM_READ_WRITE, src, GED_CLCtx, GED_CLQueue);
+    ae2f_cBmpCLBuffMk(&el->CLBuff, CL_MEM_READ_WRITE, src, GED_CLCtx);
     el->Prm[0] = prm[0];
 }
 
