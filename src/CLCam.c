@@ -3,6 +3,8 @@
 #include <ae2f/Ds/Arr.h>
 #include <GED/CLCam.h>
 
+#include <ae2fCL/Bmp/Rect.h>
+
 #include <stdio.h>
 
 #undef GED_CLCamRead
@@ -23,7 +25,7 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     if((code = ae2f_cDsAllocOwnGetSize(_this, &a, 0)) != ae2f_errDsAlloc_NCOPIED)
     goto DONE;
 
-    ae2f_struct ae2f_cBmpCLBuff cldest;
+    ae2f_struct ae2fCL_cBmpBuff cldest;
     ae2fCL_cBmpBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx);
 
     switch (background)
@@ -45,14 +47,14 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
         ) goto DONE;
 
         if(!(_element.CLBuff.body && _element.CLBuff.head && _element.CLBuff.source->Addr)) continue;
-        if((code = ae2f_BmpCLCpy(GED_CLQueue, &cldest, &_element.CLBuff, _element.Prm))) // Real
+        if((code = ae2fCL_BmpRectCpy(GED_CLQueue, &cldest, &_element.CLBuff, _element.Prm))) // Real
         goto DONE;
         if((code = ae2f_cDsAllocOwnPuts(_this, i, &_element, sizeof(struct GED_CLCamEl))))
         goto DONE;
     }
 
     DONE:
-    ae2f_cBmpCLBuffDel(&cldest);
+    ae2fCL_cBmpBuffDel(&cldest);
     return code;
 }
 
@@ -99,9 +101,9 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamResize(
 ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElInit(
     ae2f_struct GED_CLCamEl* el,
     ae2f_struct ae2f_cBmpSrc* src,
-    ae2f_struct ae2f_cBmpSrcCpyPrm* prm
+    ae2f_struct ae2f_cBmpSrcRectCpyPrm* prm
 ) {
-    ae2f_cBmpCLBuffMk(&el->CLBuff, CL_MEM_READ_WRITE, src, GED_CLCtx);
+    ae2fCL_cBmpBuffMk(&el->CLBuff, CL_MEM_READ_WRITE, src, GED_CLCtx);
     el->Prm[0] = prm[0];
 }
 
@@ -110,7 +112,7 @@ ae2f_extern ae2f_SHAREDEXPORT size_t GED_CLCamElSize() {
 }
 
 ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElDel(ae2f_struct GED_CLCamEl* a) {
-    ae2f_cBmpCLBuffDel(&a->CLBuff);
+    ae2fCL_cBmpBuffDel(&a->CLBuff);
     a->CLBuff.body = a->CLBuff.head = 0;
     a->CLBuff.source = 0;
 }
@@ -118,7 +120,7 @@ ae2f_extern ae2f_SHAREDEXPORT void GED_CLCamElDel(ae2f_struct GED_CLCamEl* a) {
 ae2f_SHAREDEXPORT ae2f_err_t 
 GED_CLCamElPrm(
     ae2f_struct GED_CLCamEl* a,
-    struct ae2f_cBmpSrcCpyPrm** param
+    struct ae2f_cBmpSrcRectCpyPrm** param
 ) {
     if(!(a && param)) return ae2f_errGlob_PTR_IS_NULL;
     param[0] = a->Prm;

@@ -14,9 +14,9 @@ configure_file(${PROJECT_SOURCE_DIR}/hin/Mig.h.in ${PROJECT_SOURCE_DIR}/include/
 add_subdirectory(mod/ae2f/ds)
 add_subdirectory(mod/ae2fCL/Bmp)
 
-
-ae2f_CoreLibProjTent(
-    ${PROJECT_NAME} ${ae2f_LIBPREFIX} 
+ae2f_CoreLibTent(
+    ${PROJECT_NAME} 
+    ${ae2f_LIBPREFIX} 
     include GED
     "hin/Mig.h.in"
     "include/GED/Mig.h"
@@ -42,7 +42,7 @@ ae2f_CoreLibProjTent(
     "src/CLPort.c"
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC CL-Bmp)
+target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CL-Bmp)
 target_link_libraries(${PROJECT_NAME} PUBLIC Ds)
 
 endif()
