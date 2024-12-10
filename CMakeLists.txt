@@ -38,10 +38,10 @@ add_library(
 )
 
 
-add_subdirectory(mod/ae2f/BmpCL)
+add_subdirectory(mod/ae2fCL/Bmp)
 target_link_libraries(${PROJECT_NAME} BmpCL)
 
-add_subdirectory(mod/ae2f/Ds)
+add_subdirectory(mod/ae2f/ds)
 target_link_libraries(${PROJECT_NAME} Ds)
 
 
