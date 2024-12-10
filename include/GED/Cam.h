@@ -1,12 +1,12 @@
 #if !defined(GED_Cam_h)
 #define GED_Cam_h
 
-#include <ae2f/Bmp/Src.h>
+#include <ae2f/Bmp/Src/Rect.h>
 #include <ae2f/Ds/Arr.h>
 
 struct GED_CamEl {
     ae2f_struct ae2f_cBmpSrc Source;
-    ae2f_struct ae2f_cBmpSrcCpyPrm SourceLinked;
+    ae2f_struct ae2f_cBmpSrcRectCpyPrm SourceLinked;
 };
 
 typedef ae2f_struct ae2f_cDsAllocOwn GED_Cam_t;

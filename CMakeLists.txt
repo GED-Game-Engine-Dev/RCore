@@ -11,12 +11,13 @@ endif()
 
 configure_file(${PROJECT_SOURCE_DIR}/hin/Mig.h.in ${PROJECT_SOURCE_DIR}/include/GED/Mig.h)
 
+add_subdirectory(mod/ae2f/ds)
 add_subdirectory(mod/ae2fCL/Bmp)
 
-add_subdirectory(mod/ae2f/ds)
 
 ae2f_CoreLibProjTent(
-    ${PROJECT_NAME} ${ae2f_PREFIX_LIB} include
+    ${PROJECT_NAME} ${ae2f_LIBPREFIX} 
+    include GED
     "hin/Mig.h.in"
     "include/GED/Mig.h"
 
@@ -43,9 +44,5 @@ ae2f_CoreLibProjTent(
 
 target_link_libraries(${PROJECT_NAME} PUBLIC CL-Bmp)
 target_link_libraries(${PROJECT_NAME} PUBLIC Ds)
-
-ae2f_CoreTestTent(
-    ${PROJECT_NAME} test
-)
 
 endif()

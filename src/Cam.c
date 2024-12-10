@@ -29,7 +29,7 @@ ae2f_err_t GED_CamBuffAll(GED_Cam_t* _this, ae2f_struct ae2f_cBmpSrc* dest, uint
 
         if(!_element.Source.Addr) continue;
 
-        if((code = ae2f_cBmpSrcCpy(dest, &_element.Source, &_element.SourceLinked))) // Real
+        if((code = ae2f_cBmpSrcRectCpy(dest, &_element.Source, &_element.SourceLinked))) // Real
         goto DONE;
 
         if((code = ae2f_cDsAllocOwnPuts(_this, i, &_element, sizeof(struct GED_CamEl))))
@@ -103,13 +103,13 @@ GED_CamEl_Init(
     if(!(_this && bitmapsource)) 
     return ae2f_errGlob_PTR_IS_NULL;
 
-    _this->SourceLinked = (struct ae2f_cBmpSrcCpyPrm) {
-        .AddrXForDest = AddrXForDest,
-        .AddrYForDest = AddrYForDest,
+    _this->SourceLinked = (struct ae2f_cBmpSrcRectCpyPrm) {
+        .AddrDest.x = AddrXForDest,
+        .AddrDest.y = AddrYForDest,
         .DataToIgnore = DataToIgnore,
         .Alpha = Alpha,
-        .WidthAsResized = WidthAsResized,
-        .HeightAsResized = HeightAsResized,
+        .Resz.x = WidthAsResized,
+        .Resz.y = HeightAsResized,
 
         .ReverseIdx = ReverseIdx,
 
@@ -121,7 +121,7 @@ GED_CamEl_Init(
 }
 
 ae2f_SHAREDEXPORT ae2f_err_t
-GED_CamEl_getParam(struct GED_CamEl* _this, struct ae2f_cBmpSrcCpyPrm** param) {
+GED_CamEl_getParam(struct GED_CamEl* _this, struct ae2f_cBmpSrcRectCpyPrm** param) {
     if(!(_this && param)) return ae2f_errGlob_PTR_IS_NULL;
     param[0] = &_this->SourceLinked;
     return ae2f_errGlob_OK;

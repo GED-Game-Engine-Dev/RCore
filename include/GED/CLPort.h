@@ -17,7 +17,7 @@ GED_CLMk();
 ae2f_extern ae2f_SHAREDCALL void
 GED_CLDel();
 
-#include <ae2f/BmpCL/BmpCL.h>
-#define GED_BmpCLSrcDel ae2f_cBmpCLBuffDel
+#include <ae2fCL/Bmp/Bmp.h>
+#define GED_BmpCLSrcDel ae2fCL_cBmpBuffDel
 
 #endif

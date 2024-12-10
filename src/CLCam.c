@@ -24,12 +24,12 @@ ae2f_extern ae2f_SHAREDEXPORT ae2f_err_t GED_CLCamBuff(
     goto DONE;
 
     ae2f_struct ae2f_cBmpCLBuff cldest;
-    ae2f_cBmpCLBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx);
+    ae2fCL_cBmpBuffMk(&cldest, CL_MEM_READ_WRITE, dest, GED_CLCtx);
 
     switch (background)
     {
     default: {
-        ae2f_BmpCLFill(GED_CLQueue, &cldest, background);
+        ae2fCL_BmpFill(GED_CLQueue, &cldest, background);
     } break;
     case (uint32_t)-1:
         break;

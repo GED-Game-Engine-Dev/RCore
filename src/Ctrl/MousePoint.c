@@ -1,4 +1,7 @@
 #include <GED/Ctrl/MousePoint.h>
+#include <GED/Mig.h>
+
+#if GED_Mig
 
 ae2f_SHAREDEXPORT ae2f_float_t
 GED_CtrlMousePointX = 0,
@@ -13,3 +16,4 @@ ae2f_SHAREDEXPORT ae2f_float_t* GED_CtrlMousePointptrX() {
 ae2f_SHAREDEXPORT ae2f_float_t* GED_CtrlMousePointptrY() {
 	return &GED_CtrlMousePointY;
 }
+#endif

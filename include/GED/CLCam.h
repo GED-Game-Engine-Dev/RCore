@@ -1,20 +1,17 @@
 #ifndef GED_CLCam_h
 #define GED_CLCam_h
 
-#include <ae2fCL/Bmp/Src.h>
+#include <ae2fCL/Bmp/Src/Rect.h>
 #include <ae2f/Ds/Arr.h>
 #include "CLPort.h"
 
 struct GED_CLCamEl {
-    ae2f_struct ae2f_cBmpCLBuff CLBuff;
-    ae2f_struct ae2f_cBmpSrcCpyPrm Prm[1];
+    ae2f_struct ae2fCL_cBmpBuff CLBuff;
+    ae2f_struct ae2f_cBmpSrcRectCpyPrm Prm[1];
 };
 
 typedef ae2f_struct ae2f_cDsAllocOwn GED_CLCam_t;
 
-#ifdef __cplusplus
-#include "CLCam.hpp"
-#endif
 
 ae2f_extern ae2f_SHAREDCALL ae2f_err_t GED_CLCamBuff(
     GED_CLCam_t* _this, 
