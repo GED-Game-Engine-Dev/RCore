@@ -1,7 +1,7 @@
 #ifndef GED_CLCam_h
 #define GED_CLCam_h
 
-#include <ae2f/BmpCL/Src.h>
+#include <ae2fCL/Bmp/Src.h>
 #include <ae2f/Ds/Arr.h>
 #include "CLPort.h"
 

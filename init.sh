@@ -1,8 +1,9 @@
 git submodule init && git submodule update
 
-cd mod/ae2f/BmpCL
-sh init.sh
+
+cd mod
+
+cd ae2fCL/Bmp && sh init.sh && cd ../../
+cd ae2f/ds && sh init.sh && cd ../../
+
 cd ..
-cd Ds
-sh init.sh
-cd ../../

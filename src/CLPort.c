@@ -1,5 +1,5 @@
-#include <ae2f/BmpCL/Buff.h>
-#include <ae2f/BmpCL/BmpCL.h>
+#include <ae2fCL/Bmp/Buff.h>
+#include <ae2fCL/Bmp/Bmp.h>
 
 ae2f_SHAREDEXPORT cl_context GED_CLCtx = 0;
 ae2f_SHAREDEXPORT cl_command_queue GED_CLQueue = 0;

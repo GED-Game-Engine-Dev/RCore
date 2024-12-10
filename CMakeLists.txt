@@ -11,8 +11,12 @@ endif()
 
 configure_file(${PROJECT_SOURCE_DIR}/hin/Mig.h.in ${PROJECT_SOURCE_DIR}/include/GED/Mig.h)
 
-add_library(
-    ${PROJECT_NAME} ${ae2f_PREFIX_LIB}
+add_subdirectory(mod/ae2fCL/Bmp)
+
+add_subdirectory(mod/ae2f/ds)
+
+ae2f_CoreLibProjTent(
+    ${PROJECT_NAME} ${ae2f_PREFIX_LIB} include
     "hin/Mig.h.in"
     "include/GED/Mig.h"
 
@@ -37,50 +41,11 @@ add_library(
     "src/CLPort.c"
 )
 
+target_link_libraries(${PROJECT_NAME} PUBLIC CL-Bmp)
+target_link_libraries(${PROJECT_NAME} PUBLIC Ds)
 
-add_subdirectory(mod/ae2fCL/Bmp)
-target_link_libraries(${PROJECT_NAME} BmpCL)
-
-add_subdirectory(mod/ae2f/ds)
-target_link_libraries(${PROJECT_NAME} Ds)
-
-
-include_directories(include)
-
-target_include_directories(${PROJECT_NAME}
-    INTERFACE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+ae2f_CoreTestTent(
+    ${PROJECT_NAME} test
 )
-
-install(TARGETS ${PROJECT_NAME}
-    EXPORT ${PROJECT_NAME}Targets
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-install(DIRECTORY include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/
-)
-
-install(EXPORT ${PROJECT_NAME}Targets
-    FILE ${PROJECT_NAME}Targets.cmake
-    NAMESPACE GED::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
-)
-
-include(CMakePackageConfigHelpers)
-configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
-)
-
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
-)
-
-add_subdirectory(test)
 
 endif()
