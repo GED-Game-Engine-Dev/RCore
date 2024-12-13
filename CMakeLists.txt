@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 enable_testing()
-project(RCore VERSION 2.5.6)
+project(RCore VERSION 2.5.7)
 
 if(NOT TARGET ${PROJECT_NAME})
 
@@ -40,6 +40,9 @@ ae2f_CoreLibTent(
 
     "include/GED/CLPort.h"
     "src/CLPort.c"
+
+    "include/GED/Mov2/Rect.h"
+    "src/Mov2/Rect.c"
 )
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC CL-Bmp)
