@@ -2,9 +2,9 @@
 
 #define axis_t ae2f_MovVec_t
 
-ae2f_Mov2DotRotDef(ae2f_MovScalar_t, axis_t);
-ae2f_Mov2RectColGetDef(ae2f_MovScalar_t);
-ae2f_Mov2RectRotColGetDef(ae2f_MovScalar_t, axis_t);
+static ae2f_Mov2DotRotDef(ae2f_MovScalar_t, axis_t);
+static ae2f_Mov2RectColGetDef(ae2f_MovScalar_t);
+static ae2f_Mov2RectRotColGetDef(ae2f_MovScalar_t, axis_t);
 
 
 ae2f_SHAREDEXPORT ae2f_Mov2Col_t GED_Mov2PrmColGet(
