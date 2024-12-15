@@ -1,5 +1,5 @@
 # [GED::RCore](https://github.com/yuisanae2f/GED_RCore)
-- Rel-v2.5.9
+- Rel-v2.5.10
 
 > A backbone written in C for GED::Core
 
@@ -10,7 +10,7 @@
 - ae2f::Core
 - ae2f::err
 - OpenCL
-- python3
+- python
 - ae2fCL::Core
 - ae2f::mov
 - ae2f::mov2
