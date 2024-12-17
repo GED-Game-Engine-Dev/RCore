@@ -6,6 +6,39 @@ static ae2f_Mov2DotRotDef(ae2f_MovScalar_t, axis_t);
 static ae2f_Mov2RectColGetDef(ae2f_MovScalar_t);
 static ae2f_Mov2RectRotColGetDef(ae2f_MovScalar_t, axis_t);
 
+ae2f_SHAREDEXPORT ae2f_err_t GED_Mov2PrmGetCentre(
+    const ae2f_struct GED_Mov2Prm* _this,
+    ae2f_Mov2Scalar_t* out
+) {
+    if(!(_this && out)) return ae2f_errGlob_PTR_IS_NULL;
+
+    out->x =  _this->AddrDest.x + (_this->Resz.x >> 1),
+    out->y =  _this->AddrDest.y + (_this->Resz.y >> 1);
+
+    return ae2f_Mov2DotRotDefName(ae2f_MovScalar_t, ae2f_MovVec_t)(
+        out, &_this->Axis, _this->RotateXYCounterClockWise
+    );
+}
+
+ae2f_SHAREDEXPORT ae2f_err_t GED_Mov2PrmSetCentre(
+    ae2f_struct GED_Mov2Prm* _this,
+    const ae2f_Mov2Scalar_t* in_ptr
+) {
+    if(!(_this && in_ptr)) return ae2f_errGlob_PTR_IS_NULL;
+
+    _this->AddrDest = in_ptr[0];
+
+    ae2f_err_t err;
+
+    err = ae2f_Mov2DotRotDefName(ae2f_MovScalar_t, ae2f_MovVec_t)(
+        &_this->AddrDest, &_this->Axis, -_this->RotateXYCounterClockWise
+    );
+
+    _this->AddrDest.x -= _this->Resz.x >> 1;
+    _this->AddrDest.y -= _this->Resz.y >> 1;
+
+    return err;
+}
 
 ae2f_SHAREDEXPORT ae2f_Mov2Col_t GED_Mov2PrmColGet(
     const ae2f_struct GED_Mov2Prm* rect, 
