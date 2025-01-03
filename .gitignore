@@ -1,3 +1,7 @@
 build/*
 include/GED/Mig.h
 .vscode/*
+
+clinclude/*
+*.clh
+*.cl
