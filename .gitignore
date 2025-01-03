@@ -5,3 +5,5 @@ include/GED/Mig.h
 clinclude/*
 *.clh
 *.cl
+
+submod

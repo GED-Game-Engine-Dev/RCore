@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 enable_testing()
-project(RCore VERSION 2.6.12)
+project(RCore VERSION 2.7.12)
 include(cmake/Core.cmake)
 
 if(NOT TARGET ${PROJECT_NAME})
