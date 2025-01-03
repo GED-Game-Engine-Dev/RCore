@@ -14,6 +14,9 @@
 - ae2f::Bmp
 - ae2f::CL-Bmp
 
+# See Also
+- ae2f::Core-Template
+
 # Dependency
 - gcc
 - make
