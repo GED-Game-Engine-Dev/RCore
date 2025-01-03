@@ -4,9 +4,3 @@
 [submodule "mod/ae2f/Ds"]
 	path = mod/ae2f/Ds
 	url = https://github.com/ae2f/ds
-[submodule "mod/ae2fCL/Bmp"]
-	path = mod/ae2fCL/Bmp
-	url = https://github.com/ae2f/CL-Bmp
-[submodule "mod/ae2f/ds"]
-	path = mod/ae2f/ds
-	url = https://github.com/ae2f/ds
