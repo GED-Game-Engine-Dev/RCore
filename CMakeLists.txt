@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 enable_testing()
 project(RCore VERSION 2.6.10)
+include(cmake/Core.cmake)
 
 if(NOT TARGET ${PROJECT_NAME})
 
@@ -11,8 +12,8 @@ endif()
 
 configure_file(${PROJECT_SOURCE_DIR}/hin/Mig.h.in ${PROJECT_SOURCE_DIR}/include/GED/Mig.h)
 
-add_subdirectory(mod/ae2fCL/Bmp)
-add_subdirectory(mod/ae2f/ds)
+ae2f_CoreLibFetch(ae2f CL-Bmp Rel-v4.7.18)
+ae2f_CoreLibFetch(ae2f Ds Rel-v1.11.2)
 
 ae2f_CoreLibTent(
     ${PROJECT_NAME} 
