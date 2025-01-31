@@ -1,5 +1,5 @@
 # [GED::RCore](https://github.com/yuisanae2f/GED_RCore)
-- Rel-v2.7.12
+- Rel-v2.8.12
 
 > A backbone written in C for GED::Core
 
@@ -22,4 +22,3 @@
 - make
 - cmake
 - opencl
-- python
